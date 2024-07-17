@@ -33,3 +33,6 @@ Yes, it means your sol and MindBlown are locked in $MINDN and the #MindBlown com
 How high can we get with a healthy project full of values and utility? Maybe I'm just too MindBlown for y'all.
 
 MindBlown yet? Let me know, I'm real and you know it.
+
+
+![MINDN Swat Team](https://github.com/user-attachments/assets/7b04f5d0-324e-40ac-8b6c-26bfc30e8c01)
