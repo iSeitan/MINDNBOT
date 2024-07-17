@@ -139,6 +139,16 @@ public class Main {
 
             // Process known commands
             switch (command) {
+                case "/invite" -> {
+                    String InviteMessage = """
+                            Here's the first [INVITATIONAL EVENT SEASON 1](https://t.me/subinvitebot/win?startapp=66918cb73c3724d15e5b9f4b)
+                            INVITE EVERYONE IN THE WORLD, SHOW THE WORLD WE'RE MINDBLOWN WITH $MINDN!
+                            [Are you MindBlown yet?](https://t.me/subinvitebot/win?startapp=66918cb73c3724d15e5b9f4b)
+                            BUILDING THE CORE
+                            AND THE BUILDING THE WORLD
+                            """;
+                    bot.execute(new SendMessage(update.message().chat().id(), InviteMessage).parseMode(ParseMode.Markdown));
+                }
 
                 case "/work" -> {
                     String WorkMessage = """
