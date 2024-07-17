@@ -5,7 +5,7 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody; // Corrected import for ResponseBody
+import okhttp3.ResponseBody;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -105,12 +105,15 @@ public class Main {
     private static final List<Long> channelIds = Arrays.asList(10021634101735763L, 10021634101731L, 1002057091895L);
     // Add the token address here
     private static final String tokenAddress = "4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545";
+
+
+
     // Telegram bot process
     private static void processUpdate(TelegramBot bot, Update update) {
         // Check if update is a message and is not null
         if (update.message() != null) {
             // Add your keywords here for the filters *not implemented yet*
-            List<String> keywords = Arrays.asList("CA", "scam", "chart", "price");
+            List<String> keywords = Arrays.asList("ca", "scam", "chart", "price");
             String messageText = update.message().text();
 
             // If messageText is null, skip this iteration
@@ -131,7 +134,8 @@ public class Main {
                 case "/work" -> {
                     String workMessage = "*\uD83C\uDF1F Get Ready to be MindBlown with $MINDN! \uD83C\uDF1F*\n" +
                             " \n" +
-                            "*MindBlown Ecosystem bot: @MindblownBot*\n" +
+                            "*List of commands of @MindBlownBot, please do /worklist*\n" +
+                            " \n" +
                             "*MindBlown Ecosystem website: https://www.mindblown.world*\n" +
                             " \n" +
                             "*$MINDN is the upgraded and decentralized version of channel points. You earn by engaging in the community. We’re MindBlown! \uD83D\uDE80*\n" +
@@ -147,9 +151,7 @@ public class Main {
                             "*\uD83D\uDCB9 Market and DEFi*\n" +
                             "\uD83D\uDD25 Burnt LP Token: [View on Solscan](https://solscan.io/tx/3usMDeJyfFeKBrr6piNKwqMLUCBPqL14TQzeXPTEp5J3fqEWtT9gvxvhK6daES9pCFHHLgwncW4MHbyEabEPLkGZ)\n" +
                             "🌐 Swap $MINDN on Raydium: [Start swapping](https://raydium.io/swap/?inputMint=sol&outputMint=4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545)\n" +
-                            "CHART [GeckoTerminal](https://www.geckoterminal.com/solana/pools/GXvnPwpJs22Q6YvUr6eA9EJV7Dt23RUH6m7jw9DW8o48) \n" +
-                            " \n" +
-                            "*To get the list of commands, please do /worklist*";
+                            "*\uD83C\uDF1F CHART* [GeckoTerminal](https://www.geckoterminal.com/solana/pools/GXvnPwpJs22Q6YvUr6eA9EJV7Dt23RUH6m7jw9DW8o48) \n";
                     bot.execute(new SendMessage(update.message().chat().id(), workMessage).parseMode(ParseMode.Markdown));
                 }
 
@@ -159,30 +161,61 @@ public class Main {
                 }
 
                 case "/scam" -> {
-                    String scamMessage = """
+                    String ScamMessage = """
+                            *PLEASE, KEEP THE FOLLOWING IN MIND WHILE IN OUR ECOSYSTEM!*
+                            \s
                             As our community continues to grow, it is important to stay vigilant against potential scams.
                             \s
-                            Please keep the following in mind:
+                            *MINDBLOWN ECOSYSTEM RULES OF THUMBS*
                             \s
-                            $MINDN is the upgraded and decentralized version of channel points. You earn via your engagement in the community. We’re MindBlown!
+                            *1.* Do Not Trust Direct Messages (DMs): Our team will never reach out to you via direct message for personal information, investment opportunities, or any other sensitive matters.
                             \s
-                            SOCIALS
-                            1. Do Not Trust Direct Messages (DMs): Our team will never reach out to you via direct message for personal information, investment opportunities, or any other sensitive matters.
+                            *2.* Follow Pinned Messages: Always refer to the pinned messages in our official channels for the most accurate and up-to-date information.\s
                             \s
-                            2. Follow Pinned Messages: Always refer to the pinned messages in our official channels for the most accurate and up-to-date information. These messages are the only official source of communication from our team.\s
+                            *3.* Report Suspicious Activity: If you encounter any suspicious activity or receive unsolicited messages, please report them to our moderators immediately.\s
                             \s
-                            3. Report Suspicious Activity: If you encounter any suspicious activity or receive unsolicited messages, please report them to our moderators immediately.\s
-                            \s
-                            Your safety and security are our top priorities. Stay informed and protect yourself against scams.
+                            *Your safety and security are our top priorities. Stay informed and protect yourself against scams.*
                             """;
-                    bot.execute(new SendMessage(update.message().chat().id(), scamMessage));
+                    bot.execute(new SendMessage(update.message().chat().id(), ScamMessage).parseMode(ParseMode.Markdown));
                 }
 
-                case "/guides" -> {
-                    String url = "https://t.me/MindBlownProject/196";
-                    bot.execute(new SendMessage(update.message().chat().id(), "Here's how you can earn passive rewards on your crypto and MINDN. A little bit like staking your crypto, but with liquidity pools. You can inject your own Raydium liquidity pool, Sol to $MINDN." + url));
-                }
+                case "/inject" -> {
+                    String InjectionMessage = """
+                            *Inject your own Liquidity Pool in the MindBlown Ecosystem!*
+                            \s
+                            [Raydium docs for liquidity providers](https://docs.raydium.io/raydium/pool-creation/creating-a-constant-product-pool)
+                            *This is recommended for MindBlown that are used to Staking, know how liquidity pools work and are ready to burn their LP tokens.*
+                            \s
+                            🌐 Steps to create a new pool 🌐
+                            \s
+                            *1.*
+                            Create a new pool on [Raydium](https://raydium.io/pools)
+                            Add your Solana coins in your liquidity pool. ($SOL / $MINDN -> SWAP)
+                            *Raydium will provide you with one LP Token. This LP Token is like an NFT, it's unique to you and your pool.*
+                            \s
+                            *2.*
+                            You have two choices: Keep it or Burn it.
+                            Burning it means you can't get your liquidity back and it's good for the ecosystem.
+                            Not burning it means you can get your liquidity back at any time. It's up to you but this can means less trust in the ecosystem.
+                            \s
+                            You can burn it on tools like [Sol-Incinerator](https://sol-incinerator.com)
+                            \s
+                            *3.*
+                            You could improve the ecosystem by creating an ecosystem farm.
+                            It's like providing $SOL and $MINDN rewards to the community for using your pool.
+                            [Here's a detailed and official guide on how all of this works](https://docs.raydium.io/raydium/pool-creation/creating-a-constant-product-pool/creating-an-ecosystem-farm)
+                            \s
+                            *Here's some further proof that MINDN is fully decentralized:*
+                            \s
+                            [MetaData, Rights revoked, LP Token Burnt.](https://explorer.solana.com/tx/56uAnmRdD7JqxH73ZcbhZp1S76dJ7zXDHEVm5ZZgFd1HX6p4ggVxZryBySmjgyJoFMgmqWeKRUBTmfnSWe7jQEoJ/inspect)
+                            [Scan $MINDN on the Solana BlockChain](https://solscan.io/token/4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545#metadata)
+                            \s
+                            I can provide any proof you need, just ask me @SeitanSurKick
+                            \s
+                            """;
+                    bot.execute(new SendMessage(update.message().chat().id(), InjectionMessage).parseMode(ParseMode.Markdown));
 
+                }
                 case "/ca" -> {
                     String ca = "4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545";
                     bot.execute(new SendMessage(update.message().chat().id(), ca));
@@ -214,7 +247,7 @@ public class Main {
                 }
 
                 case "/worklist" -> {
-                    bot.execute(new SendMessage(update.message().chat().id(), "Use the following commands [/work, /worklist, /guides, /ca, /chart, /price, /scam, /twitter, /buy, /raydium, /jupiter]"));
+                    bot.execute(new SendMessage(update.message().chat().id(), "Use the following commands [/work, /worklist, /inject, /ca, /chart, /price, /scam, /twitter, /buy, /raydium, /jupiter]"));
                 }
 
             }
@@ -270,7 +303,7 @@ public class Main {
             }
 
             DecimalFormat df = new DecimalFormat("0.000000000000");
-            return "The current price of 1 $MINDN is: " + "$" + df.format(price) + " USD on Raydium.io /buy";
+            return "Current price for 1 $MINDN is " + "$" + df.format(price);
 
         } catch (IOException e) {
             return "Exception when making request - " + e.getMessage();
