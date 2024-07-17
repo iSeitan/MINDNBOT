@@ -25,8 +25,7 @@ class Main {
 
     // Create a scheduled executor with 1 thread
     private static final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-    private static final long ONE_HOUR = 60 * 60;
-    private static final String SCAM_ALERT_MESSAGE = "As our community continues to grow, it’s important to stay vigilant against potential scams. Please keep the following in mind:\n" +
+    private static final String SCAM_ALERT_MESSAGE = "As our community continues to grow, it is important to stay vigilant against potential scams. Please keep the following in mind:\n" +
             "\n" +
             "1. Do Not Trust Direct Messages (DMs): Our team will never reach out to you via direct message for personal information, investment opportunities, or any other sensitive matters.\n" +
             "2. Follow Pinned Messages: Always refer to the pinned messages in our official channels for the most accurate and up-to-date information. These messages are the only official source of communication from our team.\n" +
@@ -77,9 +76,32 @@ class Main {
             .build();
     // channelIds variable and telegram channel list
     private static final List<Long> channelIds = Arrays.asList(1002237433490L, 1002163410173L, 1002057091895L);
-    private static String tokenAddress = "4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545"; // Add the token address here
+    // Add the token address here
+    private static String tokenAddress = "4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545";
+    // Telegram bot process
+    private static void processUpdate(TelegramBot bot, Update update) {
+        // Check if update is a message and is not null
+        if (update.message() != null) {
+            // Add your keywords here for the filters *not implemented yet*
+            List<String> keywords = Arrays.asList("CA", "scam", "chart", "price");
+            String messageText = update.message().text();
 
-    private static final String WORK_RESPONSE = "**Reminder that the official MindBlown socials network works as follow:**\n" +
+            // If messageText is null, skip this iteration
+            if (messageText == null) {
+                return; // skips executing the rest of this iteration (i.e., goes to next update)
+            }
+
+            // Check if the message is a command or contains a keyword
+            if (!(messageText.startsWith("/") || keywords.stream().anyMatch(messageText::contains))) {
+                return; // skips executing the rest of this iteration (i.e., goes to next update)
+            }
+            // If @ is present, this will separate the command from the bot's username. If not, this will just result in the same original command.
+            String command = messageText.split("@")[0];
+
+            // Process known commands
+            switch (command) {
+                case "/work" -> {
+                    String workMessage = "**Reminder that the official MindBlown socials network works as follow:**\n" +
             " \n" +
             "Our own bot: @MindblownBot\n" +
             "https://linktr.ee/mindn\n" +
@@ -100,48 +122,6 @@ class Main {
             " \n" +
             "To get the list of commands, please do /worklist";
 
-    private static void processUpdate(TelegramBot bot, Update update) {
-        // Check if update is a message and is not null
-        if (update.message() != null) {
-            // Add your keywords here
-            List<String> keywords = Arrays.asList("CA", "scam", "chart", "price");
-            String messageText = update.message().text();
-
-            // If messageText is null, skip this iteration
-            if (messageText == null) {
-                return; // skips executing the rest of this iteration (i.e., goes to next update)
-            }
-
-            // Check if the message is a command or contains a keyword
-            if (!(messageText.startsWith("/") || keywords.stream().anyMatch(messageText::contains))) {
-                return; // skips executing the rest of this iteration (i.e., goes to next update)
-            }
-            // If @ is present, this will separate the command from the bot's username. If not, this will just result in the same original command.
-            String command = messageText.split("@")[0];
-
-            // Process known commands
-            switch (command) {
-                case "/work" -> {
-                    String workMessage = "Reminder that the official MindBlown socials network works as follow:\n" +
-                            " \n" +
-                            "Our own bot: @MindblownBot\n" +
-                            "To get the list of commands, please do /worklist\n" +
-                            " \n" +
-                            "$MINDN is the upgraded and decentralized version of channel points. You earn via your engagement in the community. We’re MindBlown!\n" +
-                            " \n" +
-                            "SOCIALS\n" +
-                            "Our LinkTree: https://linktr.ee/mindn\n" +
-                            "MindBlown Telegram News channel: https://t.me/MindBlownProject\n" +
-                            "MindBlown Telegram Chat and memes: https://t.me/MindBlowngraphicsmemes/1\n" +
-                            "MindBlown Telegram Raid competition and shilling: https://t.me/MindBlownCommunity\n" +
-                            "MindBlown Subreddit: https://www.reddit.com/r/ProjectMindBlown/\n" +
-                            "MindBlown Founder X: https://x.com/SeitanSurKick\n" +
-                            "MindBlown Discord invite link: https://discord.gg/93XJtRQWkW\n" +
-                            " \n" +
-                            "Researchs and tools?\n" +
-                            "RugCheck $MINDN please, we're real. https://www.solanatracker.io/tokens/4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545\n" +
-                            "Burnt LP Token: https://solscan.io/tx/3usMDeJyfFeKBrr6piNKwqMLUCBPqL14TQzeXPTEp5J3fqEWtT9gvxvhK6daES9pCFHHLgwncW4MHbyEabEPLkGZ";
-
                     bot.execute(new SendMessage(update.message().chat().id(), workMessage));
                 }
                 case "/price" -> {
@@ -149,7 +129,7 @@ class Main {
                     bot.execute(new SendMessage(update.message().chat().id(), tokenPrice));
                 }
                 case "/scam" -> {
-                    String scamMessage = "As our community continues to grow, it’s important to stay vigilant against potential scams.\n" +
+                    String scamMessage = "As our community continues to grow, it is important to stay vigilant against potential scams.\n" +
                             " \n" +
                             "Please keep the following in mind:\n" +
                             " \n" +
@@ -194,7 +174,6 @@ class Main {
                     bot.execute(new SendMessage(update.message().chat().id(), "You can buy $MINDN on Jupiter: " + url));
                 }
                 case "/worklist" -> {
-                    String url = "https://raydium.io/swap/?inputMint=sol&outputMint=4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545";
                     bot.execute(new SendMessage(update.message().chat().id(), "Use the following commands [/work, /worklist, /guides, /ca, /chart, /price, /scam, /twitter, /buy, /raydium, /jupiter]"));
                 }
             }
@@ -208,58 +187,28 @@ class Main {
                 .addPathSegment("defi")
                 .addPathSegment("price")
                 .addQueryParameter("address", tokenAddress)
-                .addQueryParameter("chainId", "101")  // replace with your correct chainId
+                .addQueryParameter("chainId", "101")
                 .build();
-
-        Request request = new Request.Builder()
-                .url("https://public-api.birdeye.so/defi/price?include_liquidity=true&address=4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545")
-                .get()
-                .addHeader("X-API-KEY", "cad68d3829b146748b6fa34e1d2d0b04")
-                .build();
-
-        try {
-            Response response = httpClient.newCall(request).execute();
-
-            if (!response.isSuccessful()) {
-                return "Error: " + response;
-            }
-
-            JSONObject jsonObject = new JSONObject(response.body().string());
-            double price = jsonObject.getJSONObject("data").getDouble("value");  // Retrieve the price from the "value" field within the "data" object
-            DecimalFormat df = new DecimalFormat("0.00000000000"); // adjust to desired precision
-            return "The current price of 1 $MINDN is: " + "$" + df.format(price) + " USD";
-        } catch (IOException e) {
-            return "Exception when making request - " + e.getMessage();
-        }
-    }
-
-    private static String fetchTokenInfo(String tokenAddress) {
-        HttpUrl url = new HttpUrl.Builder()
-                .scheme("https")
-                .host("api.solana.fm")
-                .addPathSegment("v1")
-                .addPathSegment("tokens")
-                .addPathSegment(tokenAddress)
-                .build();
-
+    
         Request request = new Request.Builder()
                 .url(url)
                 .get()
-                .addHeader("accept", "application/json")
+                .addHeader("X-API-KEY", "{API_KEY}")
                 .build();
-
+    
         try {
             Response response = httpClient.newCall(request).execute();
-
+    
             if (!response.isSuccessful()) {
                 return "Error: " + response;
             }
-
-            // Convert the response body to JSON
+    
             JSONObject jsonObject = new JSONObject(response.body().string());
-            return jsonObject.toString(4);
+            double price = jsonObject.getJSONObject("data").getDouble("value");
+            DecimalFormat df = new DecimalFormat("0.000000000000"); 
+            return "The current price of 1 $MINDN is: " + "$" + df.format(price) + " USDon Raydium.io /buy";
         } catch (IOException e) {
-            return "Error: Exception when making request - " + e.getMessage();
+            return "Exception when making request - " + e.getMessage();
         }
     }
 }
