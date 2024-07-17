@@ -32,12 +32,21 @@ public class Main {
     private static final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
     private static final String botToken = System.getenv("TELEGRAM_BOT_TOKEN").trim();
     private static int offset = 0; // Consider loading this from a file or database
-    private static final String SCAM_ALERT_MESSAGE = "As our community continues to grow, it is important to stay vigilant against potential scams. Please keep the following in mind:\n" +
-            "\n" +
-            "1. Do Not Trust Direct Messages (DMs): Our team will never reach out to you via direct message for personal information, investment opportunities, or any other sensitive matters.\n" +
-            "2. Follow Pinned Messages: Always refer to the pinned messages in our official channels for the most accurate and up-to-date information. These messages are the only official source of communication from our team.\n" +
-            "3. Report Suspicious Activity: If you encounter any suspicious activity or receive unsolicited messages, please report them to our moderators immediately.\n" +
-            "Your safety and security are our top priorities. Stay informed and protect yourself against scams.";
+    private static final String SCAM_ALERT_MESSAGE = """
+                            *PLEASE, KEEP THE FOLLOWING IN MIND WHILE IN OUR ECOSYSTEM!*
+                            \s
+                            As our community continues to grow, it is important to stay vigilant against potential scams.
+                            \s
+                            *MINDBLOWN ECOSYSTEM RULES OF THUMBS*
+                            \s
+                            *1.* Do Not Trust Direct Messages (DMs): Our team will never reach out to you via direct message for personal information, investment opportunities, or any other sensitive matters.
+                            \s
+                            *2.* Follow Pinned Messages: Always refer to the pinned messages in our official channels for the most accurate and up-to-date information.\s
+                            \s
+                            *3.* Report Suspicious Activity: If you encounter any suspicious activity or receive unsolicited messages, please report them to our moderators immediately.\s
+                            \s
+                            *Your safety and security are our top priorities. Stay informed and protect yourself against scams.*
+                            """;
 
     // create telegram api bot with bot token
     public static void main(String[] args) {
@@ -132,27 +141,30 @@ public class Main {
             switch (command) {
 
                 case "/work" -> {
-                    String workMessage = "*\uD83C\uDF1F Get Ready to be MindBlown with $MINDN! \uD83C\uDF1F*\n" +
-                            " \n" +
-                            "*List of commands of @MindBlownBot, please do /worklist*\n" +
-                            " \n" +
-                            "*MindBlown Ecosystem website: https://www.mindblown.world*\n" +
-                            " \n" +
-                            "*$MINDN is the upgraded and decentralized version of channel points. You earn by engaging in the community. We’re MindBlown! \uD83D\uDE80*\n" +
-                            " \n" +
-                            "*\uD83C\uDF10 Social Networks*\n" +
-                            "\uD83D\uDCE2 MindBlown Ecosystem | [Join us on Telegram](https://t.me/MindBlownProject)\n" +
-                            "\uD83D\uDCAC MindBlown Ecosystem | [Join the chat](https://t.me/MindBlowngraphicsmemes/1)\n" +
-                            "\uD83D\uDCB8 MindBlown Ecosystem | [Promote and earn](https://t.me/MindBlownCommunity)\n" +
-                            "\uD83D\uDCDD MindBlown Ecosystem | [r/ProjectMindBlown](https://www.reddit.com/r/ProjectMindBlown/)\n" +
-                            "\uD83C\uDFAE MindBlown Ecosystem | [Join our Discord](https://discord.gg/93XJtRQWkW)\n" +
-                            "\uD83D\uDC26 MindBlown Ecosystem | [Follow on X](https://x.com/mindblownsol)\n" +
-                            " \n" +
-                            "*\uD83D\uDCB9 Market and DEFi*\n" +
-                            "\uD83D\uDD25 Burnt LP Token: [View on Solscan](https://solscan.io/tx/3usMDeJyfFeKBrr6piNKwqMLUCBPqL14TQzeXPTEp5J3fqEWtT9gvxvhK6daES9pCFHHLgwncW4MHbyEabEPLkGZ)\n" +
-                            "🌐 Swap $MINDN on Raydium: [Start swapping](https://raydium.io/swap/?inputMint=sol&outputMint=4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545)\n" +
-                            "*\uD83C\uDF1F CHART* [GeckoTerminal](https://www.geckoterminal.com/solana/pools/GXvnPwpJs22Q6YvUr6eA9EJV7Dt23RUH6m7jw9DW8o48) \n";
-                    bot.execute(new SendMessage(update.message().chat().id(), workMessage).parseMode(ParseMode.Markdown));
+                    String WorkMessage = """
+                            *Get Ready to be MindBlown with $MINDN!*
+                            \s
+                            *List of commands of @MindBlownBot, please do /worklist*
+                            \s
+                            MindBlown Ecosystem website: https://www.mindblown.world
+                            *$MINDN is the upgraded and decentralized version of channel points. You earn by engaging in the community.*
+                            \s
+                            *Social Networks*
+                            \s
+                            MindBlown Ecosystem | [Join us on Telegram](https://t.me/MindBlownProject)
+                            MindBlown Ecosystem | [Join the chat](https://t.me/MindBlowngraphicsmemes/1)
+                            MindBlown Ecosystem | [Promote and earn](https://t.me/MindBlownCommunity)
+                            MindBlown Ecosystem | [r/ProjectMindBlown](https://www.reddit.com/r/ProjectMindBlown/)
+                            MindBlown Ecosystem | [Join our Discord](https://discord.gg/93XJtRQWkW)
+                            MindBlown Ecosystem | [Follow on X](https://x.com/mindblownsol)
+                            \s
+                            *Market and DEFi*
+                            \s
+                            Burnt LP Token: [View on Solscan](https://solscan.io/tx/3usMDeJyfFeKBrr6piNKwqMLUCBPqL14TQzeXPTEp5J3fqEWtT9gvxvhK6daES9pCFHHLgwncW4MHbyEabEPLkGZ)
+                            Swap $MINDN on Raydium: [Start swapping](https://raydium.io/swap/?inputMint=sol&outputMint=4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545)
+                            CHART [GeckoTerminal](https://www.geckoterminal.com/solana/pools/GXvnPwpJs22Q6YvUr6eA9EJV7Dt23RUH6m7jw9DW8o48)
+                            """;
+                    bot.execute(new SendMessage(update.message().chat().id(), WorkMessage).parseMode(ParseMode.Markdown));
                 }
 
                 case "/price" -> {
@@ -170,14 +182,45 @@ public class Main {
                             \s
                             *1.* Do Not Trust Direct Messages (DMs): Our team will never reach out to you via direct message for personal information, investment opportunities, or any other sensitive matters.
                             \s
-                            *2.* Follow Pinned Messages: Always refer to the pinned messages in our official channels for the most accurate and up-to-date information.\s
+                            *2.* Follow Pinned Messages: Always refer to the pinned messages in our official channels for the most accurate and up-to-date information.
                             \s
-                            *3.* Report Suspicious Activity: If you encounter any suspicious activity or receive unsolicited messages, please report them to our moderators immediately.\s
+                            *3.* Report Suspicious Activity: If you encounter any suspicious activity or receive unsolicited messages, please report them to our moderators immediately.
                             \s
                             *Your safety and security are our top priorities. Stay informed and protect yourself against scams.*
                             """;
                     bot.execute(new SendMessage(update.message().chat().id(), ScamMessage).parseMode(ParseMode.Markdown));
                 }
+
+                case "/21bits" -> {
+                    String url = "https://www.21bits.io/code=Seitan1";
+                    bot.execute(new SendMessage(update.message().chat().id(), "Enter my 21Bits referrals and you will earn from my winnings! 21Bits will give you a 100% Deposit Bonus USE CODE SEITAN1 " + url));
+                }
+
+                case "/gamingbets" -> {
+                    String url = "https://gamingbets.com";
+                    bot.execute(new SendMessage(update.message().chat().id(), "Code: SEITANONKICK | 100% Deposit Match Bonus + 100 FREE Spins on BetSoft | Min. $15 Deposit " + url));
+                }
+
+                case "/winspirit" -> {
+                    String url = "https://pokiesgamer.com/seitan?utm_campaign=1";
+                    bot.execute(new SendMessage(update.message().chat().id(), "Use my link, then deposit a minimum of $20 and play it 3x wager, send me proof in dm and receive $10 in your Solana wallet! " + url));
+                }
+
+                case "/mindblowenergy" -> {
+                    String url = "https://www.mindblowenergy.com";
+                    bot.execute(new SendMessage(update.message().chat().id(), "Amazon.ca #1 Nootropics supplement and energy drink! " + url));
+                }
+
+                case "/fndamentals" -> {
+                    String url = "https://fndamentals.ca";
+                    bot.execute(new SendMessage(update.message().chat().id(), "Canadian Premium Apparel. Get your FNDAMENTALS! " + url));
+                }
+
+                case "/airramedia" -> {
+                    String url = "https://airramedia.ca";
+                    bot.execute(new SendMessage(update.message().chat().id(), "Canadian production company " + url));
+                }
+
 
                 case "/inject" -> {
                     String InjectionMessage = """
@@ -247,9 +290,20 @@ public class Main {
                 }
 
                 case "/worklist" -> {
-                    bot.execute(new SendMessage(update.message().chat().id(), "Use the following commands [/work, /worklist, /inject, /ca, /chart, /price, /scam, /twitter, /buy, /raydium, /jupiter]"));
+                    String WorkListMessage = """
+                            *\uD83C\uDF1F Here's the full list of commands I can do! \uD83C\uDF1F*
+                            \s
+                            *\uD83C\uDF10 MindBlown default commands*
+                            /work, /worklist, /buy, /raydium, /jupiter, /twitter
+                            \s
+                            *\uD83C\uDF10 MindBlown Ecosystem commands*
+                            /scam, /chart, /ca, /price, /inject
+                            \s
+                            *\uD83C\uDF10 MindBlown partners*
+                            /mindblowenergy, /fndamentals, /airramedia, /gamingbets, /21bits, /winspirit
+                            """;
+                    bot.execute(new SendMessage(update.message().chat().id(), WorkListMessage).parseMode(ParseMode.Markdown));
                 }
-
             }
         }
     }
