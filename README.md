@@ -2,33 +2,34 @@
 
 $MINDN is the upgraded and decentralized version of channel points. You earn by engaging in the community. We’re MindBlown! 🚀
 
-🌐 Social Networks
-📢 $MINDN Ecosystem | News: Join us on Telegram
-💬 $MINDN Ecosystem | Chat and Memes: Join the fun
-💸 $MINDN Ecosystem | Shill and Earn: Earn with us
-📝 MindBlown Subreddit: r/ProjectMindBlown
-🎮 MindBlown $MINDN Ecosystem | Discord: Join our Discord
-🐦 MindBlown Founder's X: Follow on X
+### 🌐 Social Networks
 
-💹 Market and DeFi
-🔍 RugCheck $MINDN please, we're real: Check on SolanaTracker
-🔥 Burnt LP Token: View on Solscan
+📢 $MINDN Ecosystem | News: [Join us on Telegram](https://t.me/MindBlownProject)  
+💬 $MINDN Ecosystem | Chat and Memes: [Join the fun](https://t.me/MindBlowngraphicsmemes/1)  
+💸 $MINDN Ecosystem | Shill and Earn: [Earn with us](https://t.me/MindBlownCommunity)  
+📝 MindBlown Subreddit: [r/ProjectMindBlown](https://www.reddit.com/r/ProjectMindBlown/)  
+🎮 MindBlown $MINDN Ecosystem | Discord: [Join our Discord](https://discord.gg/93XJtRQWkW)  
+🐦 MindBlown Founder's X: [Follow on X](https://x.com/SeitanSurKick)
 
-You could own your own liquidity pool in partnership with the $MINDN team on Raydium! DM one of our $MINDN Swat Team Heads -> u/Seitan MindBlown u/kinox @𝖟𝖔𝖓𝖊𓃵𓃵
+### 💹 Market and DEFi
+🔥 Burnt LP Token: [View on Solscan](https://solscan.io/tx/3usMDeJyfFeKBrr6piNKwqMLUCBPqL14TQzeXPTEp5J3fqEWtT9gvxvhK6daES9pCFHHLgwncW4MHbyEabEPLkGZ)  
 
-🌐 Swap $MINDN on Raydium: Start swapping
+🌐 Swap $MINDN on Raydium: [Start swapping](https://raydium.io/swap/?inputMint=sol&outputMint=4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545)
 
 📈 $MINDN Charts:
-BirdEye
-GeckoTerminal
+- [BirdEye](https://birdeye.so/token/4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545?chain=solana)
 
-🤔 Why can't I buy or sell $MINDN on popular and mainstream Dex/Exchanges?
-Here's how we can fix that quickly! 🚀
+- [GeckoTerminal](https://www.geckoterminal.com/solana/pools/GXvnPwpJs22Q6YvUr6eA9EJV7Dt23RUH6m7jw9DW8o48)
 
-We need one investor to inject $1,000 USDC into a Raydium liquidity pool of the standard CPP. We'll match that with $MINDN to fulfill the LP and offer any assistance to achieve the ultimate goal of $MINDN mooning. We only ask for the LP token to be burnt and proven publicly.
+### 🤔 Why can't I buy or sell $MINDN on popular and mainstream Dex/Exchanges?
 
-Yes, it means your funds are locked in $MINDN and the #MindBlown community... but what's $1,000 USDC and a dream for the decentralized ecosystem of the year? 🌟
+Here's how we can fix that quickly🚀
+(Otherwise we are collecting funds to do it in the future ourselves)
 
-Early investors often 100x in scams for the lucky ones that sell just right. How high can we get with a healthy project full of values and utility? Maybe I'm just too MindBlown for y'all.
+We need investors to inject SOLANA into a Raydium liquidity pool of the standard CMM. We'll match that with $MINDN to 50% SOL 50% MINDN. We only ask for the LP token to be burnt and proven publicly.
 
-MindBlown yet? Let me know, I'm real and you know it. 💥
+Yes, it means your sol and MindBlown are locked in $MINDN and the #MindBlown community... but what's $1,000 USDC and a dream for the decentralized ecosystem of the year? 🌟 *Would make any MINDN bag worth more as well*
+
+How high can we get with a healthy project full of values and utility? Maybe I'm just too MindBlown for y'all.
+
+MindBlown yet? Let me know, I'm real and you know it.
