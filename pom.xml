@@ -13,7 +13,7 @@
         <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <okhttp.version>5.0.0-alpha.3</okhttp.version>
+        <okhttp.version>5.0.0-alpha.14</okhttp.version>
         <telegram-bot-api.version>7.7.0</telegram-bot-api.version>
         <telegrambots.version>6.9.7.1</telegrambots.version>
         <json.version>20240303</json.version>

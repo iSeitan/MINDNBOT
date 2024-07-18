@@ -71,7 +71,7 @@ public class Main {
                 logger.error("Error broadcasting scam message: {}", e.getMessage());
                 // Implement retry logic here if necessary
             }
-        }, 0, ONE_HOUR, TimeUnit.SECONDS);
+        } , 0, ONE_HOUR, TimeUnit.SECONDS);
 
         // Poll for updates
         while (!Thread.currentThread().isInterrupted()) {
@@ -87,6 +87,7 @@ public class Main {
                 }
 
                 Thread.sleep(2000); // Consider making this configurable
+
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 logger.info("Interrupted, shutting down.");
@@ -99,10 +100,14 @@ public class Main {
 
     // This method is called periodically to send the scam alert message to all active channels
     private static void broadcastScamMessage(TelegramBot bot) {
-        System.out.println("Broadcasting scam message...");  // Add this line
+        logger.info("Broadcasting scam message...");
         for (Long channelId : channelIds) {
             SendMessage request = new SendMessage(channelId, SCAM_ALERT_MESSAGE);
-            bot.execute(request);
+            try {
+                bot.execute(request);  // Extract Telegram bot dependency
+            } catch (Exception e) {
+                logger.error(String.format("Error sending scam message to channel ID %d", channelId), e);
+            }
         }
     }
 
@@ -119,23 +124,24 @@ public class Main {
 
     // Telegram bot process
     private static void processUpdate(TelegramBot bot, Update update) {
+        // Check if update is null
+        if (update == null || update.message() == null) {
+            return;
+        }
+        String messageText = update.message().text();
+
         // Check if update is a message and is not null
         if (update.message() != null) {
             // Add your keywords here for the filters *not implemented yet*
-            List<String> keywords = Arrays.asList("ca", "scam", "chart", "price");
-            String messageText = update.message().text();
 
             // If messageText is null, skip this iteration
             if (messageText == null) {
                 return; // skips executing the rest of this iteration (i.e., goes to next update)
             }
 
-            // Check if the message is a command or contains a keyword
-            if (!(messageText.startsWith("/") || keywords.stream().anyMatch(messageText::contains))) {
-                return; // skips executing the rest of this iteration (i.e., goes to next update)
-            }
-            // If @ is present, this will separate the command from the bot's username. If not, this will just result in the same original command.
-            String command = messageText.split("@")[0];
+            // If @ is present, this will separate the command from the bot's username.
+            String[] split = messageText.split("@");
+            String command = (split.length > 0) ? split[0] : "";
 
             // Process known commands
             switch (command) {
@@ -304,7 +310,7 @@ public class Main {
                             *\uD83C\uDF1F Here's the full list of commands I can do! \uD83C\uDF1F*
                             \s
                             *\uD83C\uDF10 MindBlown default commands*
-                            /work, /worklist, /buy, /raydium, /jupiter, /twitter
+                            /work, /worklist, /invite, /buy, /raydium, /jupiter, /twitter
                             \s
                             *\uD83C\uDF10 MindBlown Ecosystem commands*
                             /scam, /chart, /ca, /price, /inject
@@ -366,7 +372,7 @@ public class Main {
                 return "Invalid price in data response";
             }
 
-            DecimalFormat df = new DecimalFormat("0.000000000000");
+            DecimalFormat df = new DecimalFormat("0.0000000000");
             return "Current price for 1 $MINDN is " + "$" + df.format(price);
 
         } catch (IOException e) {
