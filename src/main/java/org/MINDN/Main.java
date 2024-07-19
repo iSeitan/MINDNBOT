@@ -86,7 +86,7 @@ public class Main {
                     offset = update.updateId() + 1;
                 }
 
-                Thread.sleep(2000); // Consider making this configurable
+                Thread.sleep(5000); // Consider making this configurable
 
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
