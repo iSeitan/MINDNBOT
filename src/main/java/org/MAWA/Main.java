@@ -329,7 +329,7 @@ public class Main {
             }
 
             DecimalFormat df = new DecimalFormat("0.0000000000");
-            return "Current price for 1 $MINDN is " + "$" + df.format(price);
+            return "Current price for 1 $MAWA is " + "$" + df.format(price);
 
         } catch (IOException e) {
             return "Exception when making request - " + e.getMessage();
