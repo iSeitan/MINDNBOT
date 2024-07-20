@@ -17,7 +17,6 @@ import com.pengrad.telegrambot.request.GetUpdates;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.GetUpdatesResponse;
 import java.util.List;
-import java.util.concurrent.*;
 
 public class Main {
     // Create a scheduled executor with 1 thread
@@ -75,7 +74,7 @@ public class Main {
             String command = (split.length > 0) ? split[0] : "";
             // Process known commands
             switch (command) {
-                case "/invite" -> {
+                case "/invite, invite" -> {
                     String InviteMessage = """
                             Here's the first [INVITATIONAL EVENT SEASON 1](https://t.me/subinvitebot/win?startapp=66918cb73c3724d15e5b9f4b)
                             INVITE EVERYONE IN THE WORLD, SHOW THE WORLD WE'RE MINDBLOWN WITH $MINDN!
@@ -111,11 +110,11 @@ public class Main {
                             """;
                     bot.execute(new SendMessage(update.message().chat().id(), WorkMessage).parseMode(ParseMode.Markdown));
                 }
-                case "/price" -> {
+                case "/price, price" -> {
                     String tokenPrice = fetchTokenPrice();
                     bot.execute(new SendMessage(update.message().chat().id(), tokenPrice));
                 }
-                case "/scam" -> {
+                case "/scam, scam" -> {
                     String ScamMessage = """
                             *PLEASE, KEEP THE FOLLOWING IN MIND WHILE IN OUR ECOSYSTEM!*
                             \s
@@ -133,32 +132,32 @@ public class Main {
                             """;
                     bot.execute(new SendMessage(update.message().chat().id(), ScamMessage).parseMode(ParseMode.Markdown));
                 }
-                case "/21bits" -> {
+                case "/21bits, 21bits" -> {
                     String url = "https://www.21bits.io/code=Seitan1";
                     bot.execute(new SendMessage(update.message().chat().id(), "Enter my 21Bits referrals and you will earn from my winnings! 21Bits will give you a 100% Deposit Bonus USE CODE SEITAN1 " + url));
                 }
-                case "/gamingbets" -> {
+                case "/gamingbets, gamingbets" -> {
                     String url = "https://gamingbets.com";
                     bot.execute(new SendMessage(update.message().chat().id(), "Code: SEITANONKICK | 100% Deposit Match Bonus + 100 FREE Spins on BetSoft | Min. $15 Deposit " + url));
                 }
-                case "/winspirit" -> {
+                case "/winspirit, winspirit" -> {
                     String url = "https://pokiesgamer.com/seitan?utm_campaign=1";
                     bot.execute(new SendMessage(update.message().chat().id(), "Use my link, then deposit a minimum of $20 and play it 3x wager, send me proof in dm and receive $10 in your Solana wallet! " + url));
                 }
-                case "/mindblowenergy" -> {
+                case "/mindblowenergy, mindblowenergy" -> {
                     String url = "https://www.mindblowenergy.com";
                     bot.execute(new SendMessage(update.message().chat().id(), "Amazon.ca #1 Nootropics supplement and energy drink! " + url));
                 }
-                case "/fndamentals" -> {
+                case "/fndamentals, fndamentals" -> {
                     String url = "https://fndamentals.ca";
                     bot.execute(new SendMessage(update.message().chat().id(), "Canadian Premium Apparel. Get your FNDAMENTALS! " + url));
                 }
-                case "/airramedia" -> {
+                case "/airramedia, airramedia" -> {
                     String url = "https://airramedia.ca";
                     bot.execute(new SendMessage(update.message().chat().id(), "Canadian production company " + url));
                 }
 
-                case "/inject" -> {
+                case "/inject, inject" -> {
                     String InjectionMessage = """
                             *Inject your own Liquidity Pool in the MindBlown Ecosystem!*
                             \s
@@ -192,19 +191,19 @@ public class Main {
                            \s""";
                     bot.execute(new SendMessage(update.message().chat().id(), InjectionMessage).parseMode(ParseMode.Markdown));
                 }
-                case "/ca" -> {
+                case "/ca", "ca" -> {
                     String ca = "4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545";
                     bot.execute(new SendMessage(update.message().chat().id(), ca));
                 }
-                case "/twitter" -> {
+                case "/twitter, twitter" -> {
                     String ca = "https://x.com/mindblownsol";
                     bot.execute(new SendMessage(update.message().chat().id(), ca));
                 }
-                case "/chart" -> {
+                case "/chart", "chart" -> {
                     String ca = "https://www.geckoterminal.com/solana/pools/GXvnPwpJs22Q6YvUr6eA9EJV7Dt23RUH6m7jw9DW8o48";
                     bot.execute(new SendMessage(update.message().chat().id(), ca));
                 }
-                case "/raydium" -> {
+                case "/raydium, raydium" -> {
                     String url = "https://raydium.io/swap/?inputMint=sol&outputMint=4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545";
                     bot.execute(new SendMessage(update.message().chat().id(), "You can buy $MINDN on Raydium: " + url));
                 }
@@ -212,11 +211,11 @@ public class Main {
                     String url = "https://combot.org/commands";
                     bot.execute(new SendMessage(update.message().chat().id(), "Here's the full ComBot command list: " + url));
                 }
-                case "/buy" -> {
+                case "/buy, buy" -> {
                     String url = "https://raydium.io/swap/?inputMint=sol&outputMint=4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545";
                     bot.execute(new SendMessage(update.message().chat().id(), "You can buy $MINDN: " + url));
                 }
-                case "/jupiter" -> {
+                case "/jupiter, jupiter" -> {
                     String url = "https://jup.ag/swap/SOL-4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545";
                     bot.execute(new SendMessage(update.message().chat().id(), "You can buy $MINDN on Jupiter: " + url));
                 }
