@@ -21,18 +21,12 @@ $MINDN is the upgraded and decentralized version of channel points. You earn by 
 
 - [GeckoTerminal](https://www.geckoterminal.com/solana/pools/GXvnPwpJs22Q6YvUr6eA9EJV7Dt23RUH6m7jw9DW8o48)
 
-### 🤔 Why can't I buy or sell $MINDN on popular and mainstream Dex/Exchanges?
+### 🤔 When will $MINDN be on DexScreener or other DEX/CEX?
 
-Here's how we can fix that quickly🚀
-(Otherwise we are collecting funds to do it in the future ourselves)
-
-We need investors to inject SOLANA into a Raydium liquidity pool of the standard CMM. We'll match that with $MINDN to 50% SOL 50% MINDN. We only ask for the LP token to be burnt and proven publicly.
-
-Yes, it means your sol and MindBlown are locked in $MINDN and the #MindBlown community... but what's $1,000 USDC and a dream for the decentralized ecosystem of the year? 🌟 *Would make any MINDN bag worth more as well*
+We are working on it! Planning to add a new Liquidity pool on Raydium and burn the LP.
+We'll be there quickly enough 🚀
 
 How high can we get with a healthy project full of values and utility? Maybe I'm just too MindBlown for y'all.
-
 MindBlown yet? Let me know, I'm real and you know it.
-
 
 ![MINDN Swat Team](https://github.com/user-attachments/assets/7b04f5d0-324e-40ac-8b6c-26bfc30e8c01)
