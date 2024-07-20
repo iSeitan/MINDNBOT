@@ -156,7 +156,6 @@ public class Main {
                     String url = "https://airramedia.ca";
                     bot.execute(new SendMessage(update.message().chat().id(), "Canadian production company " + url));
                 }
-
                 case "/inject, inject" -> {
                     String InjectionMessage = """
                             *Inject your own Liquidity Pool in the MindBlown Ecosystem!*
@@ -195,7 +194,7 @@ public class Main {
                     String ca = "4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545";
                     bot.execute(new SendMessage(update.message().chat().id(), ca));
                 }
-                case "/twitter, twitter" -> {
+                case "/twitter" -> {
                     String ca = "https://x.com/mindblownsol";
                     bot.execute(new SendMessage(update.message().chat().id(), ca));
                 }
