@@ -75,7 +75,7 @@ public class Main {
             String command = (split.length > 0) ? split[0] : "";
             // Process known commands
             switch (command) {
-                case "/invite" -> {
+                case "/invite", "invite" -> {
                     String InviteMessage = """
                             Here's the first [INVITATIONAL EVENT SEASON 1](https://t.me/subinvitebot/win?startapp=66918cb73c3724d15e5b9f4b)
                             INVITE EVERYONE IN THE WORLD, SHOW THE WORLD WE'RE MINDBLOWN WITH $MINDN!
@@ -85,7 +85,37 @@ public class Main {
                             """;
                     bot.execute(new SendMessage(update.message().chat().id(), InviteMessage).parseMode(ParseMode.Markdown));
                 }
-                case "/work" -> {
+                case "/roadmap", "roadmap" -> {
+                    String RoadmapMessage = """
+                            *MindBlown Ecosystem Roadmap*
+                            \s
+                            *🌐 Phase 1: Building the MINDN Core 🌐*
+                            \s
+                            ✅ First and last mint of MindBlown (1,000,000,000) |06-06-2024|
+                            ✅ Launch of the MindBlown Ecosystem |06-08-2024|
+                            ✅ Launch of the MindBlown Telegram Ecosystem |06-10-2024|
+                            ✅ Launch of the MindBlown Reddit Ecosystem |06-10-2024|
+                            ✅ Injection of the first Liquidity Pool on Raydium.io |06-28-2024|
+                            ✅ Liquidity Pool LP Token burnt |06-30-2024|
+                            ✅ Launch of Shill competition with rewards [Every 2 weeks] |07-01-2024|
+                            ✅ Launch of the MindBlown Discord Ecosystem |06-08-2024|
+                            ✅ Open source release of @MindBlownBot, our telegram bot |06-08-2024|
+                            ✅ Launch of the MindBlown Ecosystem Website |07-17-2024|
+                            ✅ Created a Pump.Fun token $GETMINDN, it's a $MINDN ad! |07-19-2024|
+                            \s
+                            *And we won't stop there to better the MINDN core.*
+                            \s
+                            *🌐 Phase 2: Changing the Cryptoverse 🌐*
+                            \s
+                            TBA: Announcing the first MindBlown Partnership. Many more will follow.
+                            \s
+                            TBA: First MindBlown NFTs collection. NFTs that are worth something, but cost you less than a coffee.
+                            \s
+                            Outside of those... The world is not MindBlown enough yet.
+                            """;
+                    bot.execute(new SendMessage(update.message().chat().id(), RoadmapMessage).parseMode(ParseMode.Markdown));
+                }
+                case "/work", "welcome" -> {
                     String WorkMessage = """
                             *Get Ready to be MindBlown with $MINDN!*
                             \s
@@ -111,11 +141,11 @@ public class Main {
                             """;
                     bot.execute(new SendMessage(update.message().chat().id(), WorkMessage).parseMode(ParseMode.Markdown));
                 }
-                case "/price" -> {
+                case "/price", "price" -> {
                     String tokenPrice = fetchTokenPrice();
                     bot.execute(new SendMessage(update.message().chat().id(), tokenPrice));
                 }
-                case "/scam" -> {
+                case "/scam", "scam" -> {
                     String ScamMessage = """
                             *PLEASE, KEEP THE FOLLOWING IN MIND WHILE IN OUR ECOSYSTEM!*
                             \s
@@ -211,7 +241,7 @@ public class Main {
                     String url = "https://combot.org/commands";
                     bot.execute(new SendMessage(update.message().chat().id(), "Here's the full ComBot command list: " + url));
                 }
-                case "/buy" -> {
+                case "buy" -> {
                     String url = "https://raydium.io/swap/?inputMint=sol&outputMint=4bEMorkYYDojk98Pk2hRTScvh6HwKgvrikzEcP2dY545";
                     bot.execute(new SendMessage(update.message().chat().id(), "You can buy $MINDN: " + url));
                 }
