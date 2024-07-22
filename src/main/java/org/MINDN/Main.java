@@ -95,7 +95,7 @@ public class Main {
                             \s
                             *🌐 Phase 1: Building the MINDN Core 🌐*
                             \s
-                            ✅ First and last mint of MindBlown (1,000,000,000) |06-06-2024|
+                            ✅ First and last mint of 1B MindBlown |06-06-2024|
                             ✅ Launch of the MindBlown Ecosystem |06-08-2024|
                             ✅ Launch of the MindBlown Telegram Ecosystem |06-10-2024|
                             ✅ Launch of the MindBlown Reddit Ecosystem |06-10-2024|
@@ -111,8 +111,9 @@ public class Main {
                             \s
                             *🌐 Phase 2: Changing the Cryptoverse 🌐*
                             \s
-                            TBA: Announcing the first MindBlown Partnership. Many more will follow.
+                            THIS MONTH: MINDN Team will add a new Liquidity Pool on Raydium.io. We will also get on DexScreener then.
                             \s
+                            TBA: Announcing the first MindBlown Partnership. Many more will follow.
                             TBA: First MindBlown NFTs collection. NFTs that are worth something, but cost you less than a coffee.
                             \s
                             Outside of those... The world is not MindBlown enough yet.
@@ -258,7 +259,7 @@ public class Main {
                             *\uD83C\uDF1F Here's the full list of commands I can do! \uD83C\uDF1F*
                             \s
                             *\uD83C\uDF10 MindBlown default commands*
-                            /work, /worklist, /invite, /buy, /raydium, /jupiter, /twitter
+                            /work, /worklist, /roadmap, /invite, /buy, /raydium, /jupiter, /twitter
                             \s
                             *\uD83C\uDF10 MindBlown Ecosystem commands*
                             /scam, /chart, /ca, /price, /inject
