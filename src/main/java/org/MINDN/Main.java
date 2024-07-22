@@ -1,6 +1,7 @@
 package org.MINDN;
 
 import com.pengrad.telegrambot.model.request.ParseMode;
+import com.pengrad.telegrambot.request.SendPhoto;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -86,6 +87,9 @@ public class Main {
                     bot.execute(new SendMessage(update.message().chat().id(), InviteMessage).parseMode(ParseMode.Markdown));
                 }
                 case "/roadmap", "roadmap" -> {
+                    String imageUrl = "https://imgur.com/a/07oSfAy"; // replace with your image URL
+                    SendPhoto sendPhotoRequest = new SendPhoto(update.message().chat().id(), imageUrl);
+                    bot.execute(sendPhotoRequest);
                     String RoadmapMessage = """
                             *MindBlown Ecosystem Roadmap*
                             \s
